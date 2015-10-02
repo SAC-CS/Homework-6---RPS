@@ -12,11 +12,11 @@ public class MainClass {
 		char answer = 'Y';
 
 		do {
-
 			System.out.print("Please enter S for scissors, R for rock, or P for paper: ");
 			String myChoice = myKeyboard.next().toUpperCase();
 
-			if ((!(myChoice.equals("R"))) && (!(myChoice.equals("P"))) && (!(myChoice.equals("S")))) {
+			if ((!(myChoice.equals("R"))) && (!(myChoice.equals("P"))) && (!(myChoice.equals("S")))) 
+			{
 				System.out.println("Error: Invalid choice.");
 				System.out.print("Please enter S for scissors, R for rock, or P for paper: ");
 				myChoice = myKeyboard.next();
@@ -26,13 +26,18 @@ public class MainClass {
 				if (myChoice.equals("R")) 
 				{
 					int cpuChoice = myRNG.nextInt(3);
-					if (cpuChoice == 0) {
+					if (cpuChoice == 0) 
+					{
 						System.out.println("I picked rock.");
 						System.out.println("The game is a draw.");
-					} else if (cpuChoice == 1) {
+					} 
+					else if (cpuChoice == 1) 
+					{
 						System.out.println("I picked paper.");
 						System.out.println("You lose!");
-					} else if (cpuChoice == 2) {
+					} 
+					else if (cpuChoice == 2) 
+					{
 						System.out.println("I picked scissors.");
 						System.out.println("You win!");
 					}
@@ -40,13 +45,18 @@ public class MainClass {
 				else if (myChoice.equals("P")) 
 				{
 					int cpuChoice = myRNG.nextInt(3);
-					if (cpuChoice == 0) {
+					if (cpuChoice == 0) 
+					{
 						System.out.println("I picked rock.");
 						System.out.println("You win!");
-					} else if (cpuChoice == 1) {
+					} 
+					else if (cpuChoice == 1) 
+					{
 						System.out.println("I picked paper.");
 						System.out.println("The game is a draw.");
-					} else if (cpuChoice == 2) {
+					} 
+					else if (cpuChoice == 2)
+					{
 						System.out.println("I picked scissors.");
 						System.out.println("You lose!");
 					}
@@ -71,7 +81,7 @@ public class MainClass {
 					}
 				}
 
-				System.out.println("Do it again?");
+				System.out.println("Do it again? (Y/N)");
 				answer = myKeyboard.next().toUpperCase().charAt(0);
 			}
 		} while (answer != 'N');
