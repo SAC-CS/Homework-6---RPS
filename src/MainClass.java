@@ -2,6 +2,8 @@
 import java.util.Random;
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 public class MainClass {
 
 	public static void main(String[] args)
@@ -74,8 +76,7 @@ public class MainClass {
 					}
 				}
 
-				System.out.println("Do it again? (Y/N)");
-				answer = myKeyboard.next().toUpperCase().charAt(0);
+				answer = JOptionPane.showInputDialog("Do it again? (Y/N)").toUpperCase().charAt(0);
 			}
 		} while (answer != 'N');
 		System.out.println("GoodBye!");
