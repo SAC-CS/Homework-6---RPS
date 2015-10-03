@@ -10,7 +10,7 @@ public class MainClass {
 	{
 		Random myRNG = new Random();
 		Scanner myKeyboard = new Scanner(System.in);
-		char doAgain;
+		String doAgain = null;
 		boolean answer = true;
 
 		do {
@@ -73,24 +73,21 @@ public class MainClass {
 					}
 				}
 
-				doAgain = JOptionPane.showInputDialog("Do it again? (Y/N)").toUpperCase().charAt(0);
-
-				while (((doAgain != 'Y')) || ((doAgain != 'N'))) 
+				doAgain = JOptionPane.showInputDialog("Do it again? (Y/N)").toUpperCase();
+				while(!doAgain.equals("Y") || !doAgain.equals("N")) 
 				{
 					JOptionPane.showMessageDialog(null, "Error: Invalid choice.");
-					doAgain = JOptionPane.showInputDialog("Do it again? (Y/N)").toUpperCase().charAt(0);
-					if (doAgain == 'Y') 
+					doAgain = JOptionPane.showInputDialog("Do it again? (Y/N)").toUpperCase();
+					if (doAgain.equals("Y")) 
 					{
-						answer = true;
+						break;
 					}
-					else
-					{
-						answer = false;
-					}
+					
 				}
-
+				
 			}
-		} while (answer != false);
+			
+		} while (!(doAgain.equals("N")));
 		JOptionPane.showMessageDialog(null,"GoodBye!");
 	}
 }
