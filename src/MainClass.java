@@ -10,10 +10,10 @@ public class MainClass {
 	{
 		Random myRNG = new Random();
 		Scanner myKeyboard = new Scanner(System.in);
-		String doAgain = null;
-		boolean answer = true;
-
+		String doAgain;
+		
 		do {
+			
 			String myChoice = JOptionPane.showInputDialog(null, "Please enter S for scissors, R for rock, or P for paper: ").toUpperCase();
 
 
@@ -22,11 +22,11 @@ public class MainClass {
 				JOptionPane.showMessageDialog(null, "Error: Invalid choice.");			
 			}
 			else{
-				
+
 				int cpuChoice = myRNG.nextInt(3);
 				if (myChoice.equals("R")) 
 				{
-					
+
 					if (cpuChoice == 0) 
 					{
 						JOptionPane.showMessageDialog(null, "We both picked rock!\nThe game is a draw.");
@@ -73,17 +73,13 @@ public class MainClass {
 					}
 				}
 
+			}
+			
+			doAgain = JOptionPane.showInputDialog("Do it again? (Y/N)").toUpperCase();
+			while(!(doAgain.matches("[YN]+"))) 
+			{				
+				JOptionPane.showMessageDialog(null, "Error: Invalid choice.");
 				doAgain = JOptionPane.showInputDialog("Do it again? (Y/N)").toUpperCase();
-				while(!doAgain.equals("Y") || !doAgain.equals("N")) 
-				{
-					JOptionPane.showMessageDialog(null, "Error: Invalid choice.");
-					doAgain = JOptionPane.showInputDialog("Do it again? (Y/N)").toUpperCase();
-					if (doAgain.equals("Y")) 
-					{
-						break;
-					}
-					
-				}
 				
 			}
 			
