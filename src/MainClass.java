@@ -22,10 +22,11 @@ public class MainClass {
 				JOptionPane.showMessageDialog(null, "Error: Invalid choice.");			
 			}
 			else{
-
+				
+				int cpuChoice = myRNG.nextInt(3);
 				if (myChoice.equals("R")) 
 				{
-					int cpuChoice = myRNG.nextInt(3);
+					
 					if (cpuChoice == 0) 
 					{
 						JOptionPane.showMessageDialog(null, "We both picked rock!\nThe game is a draw.");
@@ -43,7 +44,6 @@ public class MainClass {
 				} 
 				else if (myChoice.equals("P")) 
 				{
-					int cpuChoice = myRNG.nextInt(3);
 					if (cpuChoice == 0) 
 					{
 						JOptionPane.showMessageDialog(null, "You picked paper.\nI picked rock.\nYou win!");
@@ -59,7 +59,6 @@ public class MainClass {
 				} 
 				else if (myChoice.equals("S")) 
 				{
-					int cpuChoice = myRNG.nextInt(3);
 					if (cpuChoice == 0) 
 					{
 						JOptionPane.showMessageDialog(null, "You picked scissors.\nI picked rock.\nYou lose!");
@@ -76,7 +75,7 @@ public class MainClass {
 
 				doAgain = JOptionPane.showInputDialog("Do it again? (Y/N)").toUpperCase().charAt(0);
 
-				while (((doAgain != 'Y')) && ((doAgain != 'N'))) 
+				while (((doAgain != 'Y')) || ((doAgain != 'N'))) 
 				{
 					JOptionPane.showMessageDialog(null, "Error: Invalid choice.");
 					doAgain = JOptionPane.showInputDialog("Do it again? (Y/N)").toUpperCase().charAt(0);
