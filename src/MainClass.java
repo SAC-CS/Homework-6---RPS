@@ -1,4 +1,3 @@
-
 import java.util.Random;
 import java.util.Scanner;
 
@@ -11,17 +10,16 @@ public class MainClass {
 	{
 		Random myRNG = new Random();
 		Scanner myKeyboard = new Scanner(System.in);
-		char answer = 'Y';
+		char doAgain;
+		boolean answer = true;
 
 		do {
 			String myChoice = JOptionPane.showInputDialog(null, "Please enter S for scissors, R for rock, or P for paper: ").toUpperCase();
-			
+
 
 			if ((!(myChoice.equals("R"))) && (!(myChoice.equals("P"))) && (!(myChoice.equals("S")))) 
 			{
-				System.out.println("Error: Invalid choice.");
-				System.out.print("Please enter S for scissors, R for rock, or P for paper: ");
-				myChoice = myKeyboard.next();
+				JOptionPane.showMessageDialog(null, "Error: Invalid choice.");			
 			}
 			else{
 
@@ -30,17 +28,17 @@ public class MainClass {
 					int cpuChoice = myRNG.nextInt(3);
 					if (cpuChoice == 0) 
 					{
-						JOptionPane.showMessageDialog(null, "I picked rock.\nThe game is a draw.");
-						
+						JOptionPane.showMessageDialog(null, "We both picked rock!\nThe game is a draw.");
+
 					} 
 					else if (cpuChoice == 1) 
 					{
-						JOptionPane.showMessageDialog(null, "I picked paper.\nYou lose!.");
-						
+						JOptionPane.showMessageDialog(null, "You picked rock.\nI picked paper.\nYou lose!");
+
 					} 
 					else if (cpuChoice == 2) 
 					{
-						JOptionPane.showMessageDialog(null, "I picked scissors.\nYou win!");
+						JOptionPane.showMessageDialog(null, "You picked rock.\nI picked scissors.\nYou win!");
 					}
 				} 
 				else if (myChoice.equals("P")) 
@@ -48,15 +46,15 @@ public class MainClass {
 					int cpuChoice = myRNG.nextInt(3);
 					if (cpuChoice == 0) 
 					{
-						JOptionPane.showMessageDialog(null, "I picked rock.\nYou win!");
+						JOptionPane.showMessageDialog(null, "You picked paper.\nI picked rock.\nYou win!");
 					} 
 					else if (cpuChoice == 1) 
 					{
-						JOptionPane.showMessageDialog(null, "I picked paper.\nThe game is a draw.");
+						JOptionPane.showMessageDialog(null, "We both picked paper!\nThe game is a draw.");
 					} 
 					else if (cpuChoice == 2)
 					{
-						JOptionPane.showMessageDialog(null, "I picked scissors.\n.You lose!");
+						JOptionPane.showMessageDialog(null, "You picked paper.\nI picked scissors.\nYou lose!");
 					}
 				} 
 				else if (myChoice.equals("S")) 
@@ -64,21 +62,36 @@ public class MainClass {
 					int cpuChoice = myRNG.nextInt(3);
 					if (cpuChoice == 0) 
 					{
-						JOptionPane.showMessageDialog(null, "I picked rock.\nYou lose!");
+						JOptionPane.showMessageDialog(null, "You picked scissors.\nI picked rock.\nYou lose!");
 					} 
 					else if (cpuChoice == 1) 
 					{
-						JOptionPane.showMessageDialog(null, "I picked paper.\nYou win!");
+						JOptionPane.showMessageDialog(null, "You picked scissors.\nI picked paper.\nYou win!");
 					} 
 					else if (cpuChoice == 2) 
 					{
-						JOptionPane.showMessageDialog(null, "I picked scissors.\nThe game is a draw.");
+						JOptionPane.showMessageDialog(null, "We both picked scissors!\nThe game is a draw.");
 					}
 				}
 
-				answer = JOptionPane.showInputDialog("Do it again? (Y/N)").toUpperCase().charAt(0);
+				doAgain = JOptionPane.showInputDialog("Do it again? (Y/N)").toUpperCase().charAt(0);
+
+				while (((doAgain != 'Y')) && ((doAgain != 'N'))) 
+				{
+					JOptionPane.showMessageDialog(null, "Error: Invalid choice.");
+					doAgain = JOptionPane.showInputDialog("Do it again? (Y/N)").toUpperCase().charAt(0);
+					if (doAgain == 'Y') 
+					{
+						answer = true;
+					}
+					else
+					{
+						answer = false;
+					}
+				}
+
 			}
-		} while (answer != 'N');
+		} while (answer != false);
 		JOptionPane.showMessageDialog(null,"GoodBye!");
 	}
 }
