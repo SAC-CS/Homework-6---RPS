@@ -87,3 +87,5 @@ public class MainClass {
 		JOptionPane.showMessageDialog(null,"GoodBye!");
 	}
 }
+
+//Good job, John.   Now instead of 0,1,2....please see if you can use constant to make the code easier to read.
